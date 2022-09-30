@@ -27,6 +27,7 @@ class View: UIViewController {
     }()
     
     private var player: AVAudioPlayer? = nil
+    private var currentTime: Double = 0.0
 
     override func viewDidLoad() {
         
@@ -55,7 +56,6 @@ class View: UIViewController {
             let url = Bundle.main.path(forResource: "Chopin - Nocturne in F minor Op 55 No 1", ofType: "mp3")
             
             do {
-                
                 try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
                 
@@ -69,7 +69,7 @@ class View: UIViewController {
             }
             catch {
                 
-                print("algo errado naoesta certo")
+                print("algo errado nao esta certo")
             }
         }
     }

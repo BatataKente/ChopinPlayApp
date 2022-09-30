@@ -56,15 +56,31 @@
 		1464354D28E763D7002850E3 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				1464354E28E763D7002850E3 /* AppDelegate.swift */,
-				1464355028E763D7002850E3 /* SceneDelegate.swift */,
+				1464356528E76C8A002850E3 /* AppUtils */,
+				1464356428E76C81002850E3 /* AppDelegate */,
 				1464355228E763D7002850E3 /* View.swift */,
-				1464355728E763D9002850E3 /* Assets.xcassets */,
 				1464355928E763D9002850E3 /* LaunchScreen.storyboard */,
 				1464355C28E763D9002850E3 /* Info.plist */,
-				1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		1464356428E76C81002850E3 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				1464354E28E763D7002850E3 /* AppDelegate.swift */,
+				1464355028E763D7002850E3 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		1464356528E76C8A002850E3 /* AppUtils */ = {
+			isa = PBXGroup;
+			children = (
+				1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */,
+				1464355728E763D9002850E3 /* Assets.xcassets */,
+			);
+			path = AppUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
