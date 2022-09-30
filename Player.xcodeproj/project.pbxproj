@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		141128EE28E7961D00BE6882 /* Berserk - Episódio 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1464356D28E786B7002850E3 /* Berserk - Episódio 1.mp4 */; };
+		141128F228E7997600BE6882 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141128F128E7997600BE6882 /* UIView.swift */; };
+		141128F628E799FD00BE6882 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141128F528E799FD00BE6882 /* Assets.swift */; };
+		141128F828E79C3200BE6882 /* dio - holy diver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141128F728E79C3200BE6882 /* dio - holy diver.mp3 */; };
 		1464354F28E763D7002850E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464354E28E763D7002850E3 /* AppDelegate.swift */; };
 		1464355128E763D7002850E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464355028E763D7002850E3 /* SceneDelegate.swift */; };
 		1464355328E763D7002850E3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464355228E763D7002850E3 /* View.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		141128F128E7997600BE6882 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		141128F528E799FD00BE6882 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		141128F728E79C3200BE6882 /* dio - holy diver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dio - holy diver.mp3"; sourceTree = "<group>"; };
 		1464354B28E763D7002850E3 /* Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Player.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1464354E28E763D7002850E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1464355028E763D7002850E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +47,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141128EF28E7993F00BE6882 /* Musics */ = {
+			isa = PBXGroup;
+			children = (
+				141128F728E79C3200BE6882 /* dio - holy diver.mp3 */,
+				1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */,
+			);
+			path = Musics;
+			sourceTree = "<group>";
+		};
+		141128F028E7994600BE6882 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				1464356D28E786B7002850E3 /* Berserk - Episódio 1.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		141128F328E799AA00BE6882 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				141128F128E7997600BE6882 /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		141128F428E799DD00BE6882 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				141128F028E7994600BE6882 /* Videos */,
+				141128EF28E7993F00BE6882 /* Musics */,
+				1464355728E763D9002850E3 /* Assets.xcassets */,
+				141128F528E799FD00BE6882 /* Assets.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		1464354228E763D7002850E3 = {
 			isa = PBXGroup;
 			children = (
@@ -81,9 +123,8 @@
 		1464356528E76C8A002850E3 /* AppUtils */ = {
 			isa = PBXGroup;
 			children = (
-				1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */,
-				1464356D28E786B7002850E3 /* Berserk - Episódio 1.mp4 */,
-				1464355728E763D9002850E3 /* Assets.xcassets */,
+				141128F428E799DD00BE6882 /* Assets */,
+				141128F328E799AA00BE6882 /* Extensions */,
 				1464356E28E786FE002850E3 /* Player.swift */,
 			);
 			path = AppUtils;
@@ -151,6 +192,7 @@
 				1464355B28E763D9002850E3 /* LaunchScreen.storyboard in Resources */,
 				1464355828E763D9002850E3 /* Assets.xcassets in Resources */,
 				1464356328E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 in Resources */,
+				141128F828E79C3200BE6882 /* dio - holy diver.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +203,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141128F228E7997600BE6882 /* UIView.swift in Sources */,
 				1464356F28E786FE002850E3 /* Player.swift in Sources */,
+				141128F628E799FD00BE6882 /* Assets.swift in Sources */,
 				1464355328E763D7002850E3 /* View.swift in Sources */,
 				1464354F28E763D7002850E3 /* AppDelegate.swift in Sources */,
 				1464355128E763D7002850E3 /* SceneDelegate.swift in Sources */,

@@ -10,12 +10,15 @@ import AVKit
 struct Player {
     
     private var player: AVPlayer? = nil
+    private var layer: AVPlayerLayer? = nil
     
     mutating func play(_ url: URL?, in view: UIView? = nil) {
         
         if let player = player {
             
             self.player = nil
+            self.layer?.removeFromSuperlayer()
+            
             player.pause()
         }
         else {
@@ -25,10 +28,10 @@ struct Player {
             
             if let view = view {
                 
-                let layer = AVPlayerLayer(player: player)
-                view.layer.addSublayer(layer)
-                layer.frame = view.layer.bounds
-                layer.videoGravity = .resizeAspect
+                layer = AVPlayerLayer(player: player)
+                view.layer.addSublayer(layer ?? CALayer())
+                layer?.frame = view.layer.bounds
+                layer?.videoGravity = .resizeAspect
             }
             
             player?.play()

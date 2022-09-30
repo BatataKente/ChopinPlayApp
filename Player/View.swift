@@ -10,28 +10,43 @@ import AVKit
 
 class View: UIViewController {
     
-    private lazy var player = Player()
-    
-    private struct Archives {
+    private lazy var stack: UIStackView = {
         
-        static let chopin = (file: "Chopin - Nocturne in F minor Op 55 No 1", type: "mp3")
-        static let berserk = (file: "Berserk - Episódio 1", type: "mp4")
-    }
-    
-    private let button: UIButton = {
+        var player = Player()
         
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "music.note.list"), for: .normal)
-        button.contentMode = .scaleAspectFit
+        let createButton = {(archive: (file: String, type: String)) -> UIButton in
+            
+            
+            let button = UIButton()
+            button.setImage(UIImage(systemName: "music.note.list"), for: .normal)
+            button.contentMode = .scaleAspectFit
+            
+            let action = UIAction{_ in
+                
+                player.play(URL(fileURLWithPath: Bundle.main.path(forResource: archive.file,
+                                                                  ofType: archive.type) ?? ""), in: self.view)
+            }
+            
+            button.addAction(action, for: .touchUpInside)
+            
+            button.imageView?.translatesAutoresizingMaskIntoConstraints = false
+            
+            button.imageView?.leadingAnchor.constraint(equalTo: button.leadingAnchor).isActive = true
+            button.imageView?.trailingAnchor.constraint(equalTo: button.trailingAnchor).isActive = true
+            button.imageView?.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+            button.imageView?.heightAnchor.constraint(equalTo: button.imageView?.widthAnchor ?? NSLayoutDimension()).isActive = true
+            
+            return button
+        }
         
-        button.imageView?.translatesAutoresizingMaskIntoConstraints = false
         
-        button.imageView?.leadingAnchor.constraint(equalTo: button.leadingAnchor).isActive = true
-        button.imageView?.trailingAnchor.constraint(equalTo: button.trailingAnchor).isActive = true
-        button.imageView?.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
-        button.imageView?.heightAnchor.constraint(equalTo: button.imageView?.widthAnchor ?? NSLayoutDimension()).isActive = true
+        let stack = UIStackView(arrangedSubviews: [createButton(App.Videos.berserk),
+                                                   createButton(App.Musics.chopin),
+                                                   createButton(App.Musics.dio)])
+        stack.distribution = .fillEqually
+        stack.axis = .vertical
         
-        return button
+        return stack
     }()
 
     override func viewDidLoad() {
@@ -39,22 +54,14 @@ class View: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .red
-        view.addSubview(button)
+        view.addSubview(stack)
         
-        button.translatesAutoresizingMaskIntoConstraints = false
+        stack.translatesAutoresizingMaskIntoConstraints = false
         
-        button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        button.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
-        button.addTarget(nil, action: #selector(buttonTarget), for: .touchUpInside)
-    }
-    
-    @objc private func buttonTarget() {
-       
-        player.play(URL(fileURLWithPath: Bundle.main.path(forResource: Archives.berserk.file,
-                                                          ofType: Archives.berserk.type) ?? ""), in: view)
+        stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        stack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        stack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        stack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 }
 
