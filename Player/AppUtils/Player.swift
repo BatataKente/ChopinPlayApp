@@ -14,27 +14,26 @@ struct Player {
     
     mutating func play(_ url: URL?, in view: UIView? = nil) {
         
-        if let player = player {
+        if player != nil {return}
+        
+        guard let url = url else {return}
+        player = AVPlayer(url: url)
+        
+        if let view = view {
             
-            self.player = nil
-            self.layer?.removeFromSuperlayer()
-            
-            player.pause()
+            layer = AVPlayerLayer(player: player)
+            view.layer.addSublayer(layer ?? CALayer())
+            layer?.frame = view.layer.bounds
+            layer?.videoGravity = .resizeAspect
         }
-        else {
-            
-            guard let url = url else {return}
-            player = AVPlayer(url: url)
-            
-            if let view = view {
-                
-                layer = AVPlayerLayer(player: player)
-                view.layer.addSublayer(layer ?? CALayer())
-                layer?.frame = view.layer.bounds
-                layer?.videoGravity = .resizeAspect
-            }
-            
-            player?.play()
-        }
+        
+        player?.play()
+    }
+    
+    mutating func stop() {
+        
+        player?.pause()
+        player = nil
+        self.layer?.removeFromSuperlayer()
     }
 }

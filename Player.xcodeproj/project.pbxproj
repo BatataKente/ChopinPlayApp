@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1401744128E7AA4B008CCBDC /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401744028E7AA4B008CCBDC /* UIStackView.swift */; };
+		1401744528E7AEEC008CCBDC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401744428E7AEEC008CCBDC /* ViewModel.swift */; };
 		141128EE28E7961D00BE6882 /* Berserk - Episódio 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1464356D28E786B7002850E3 /* Berserk - Episódio 1.mp4 */; };
 		141128F228E7997600BE6882 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141128F128E7997600BE6882 /* UIView.swift */; };
 		141128F628E799FD00BE6882 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141128F528E799FD00BE6882 /* Assets.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1401744028E7AA4B008CCBDC /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		1401744428E7AEEC008CCBDC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		141128F128E7997600BE6882 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		141128F528E799FD00BE6882 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		141128F728E79C3200BE6882 /* dio - holy diver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dio - holy diver.mp3"; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				141128F128E7997600BE6882 /* UIView.swift */,
+				1401744028E7AA4B008CCBDC /* UIStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 				1464356528E76C8A002850E3 /* AppUtils */,
 				1464356428E76C81002850E3 /* AppDelegate */,
 				1464355228E763D7002850E3 /* View.swift */,
+				1401744428E7AEEC008CCBDC /* ViewModel.swift */,
 				1464355928E763D9002850E3 /* LaunchScreen.storyboard */,
 				1464355C28E763D9002850E3 /* Info.plist */,
 			);
@@ -205,9 +211,11 @@
 			files = (
 				141128F228E7997600BE6882 /* UIView.swift in Sources */,
 				1464356F28E786FE002850E3 /* Player.swift in Sources */,
+				1401744128E7AA4B008CCBDC /* UIStackView.swift in Sources */,
 				141128F628E799FD00BE6882 /* Assets.swift in Sources */,
 				1464355328E763D7002850E3 /* View.swift in Sources */,
 				1464354F28E763D7002850E3 /* AppDelegate.swift in Sources */,
+				1401744528E7AEEC008CCBDC /* ViewModel.swift in Sources */,
 				1464355128E763D7002850E3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
