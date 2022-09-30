@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141128EE28E7961D00BE6882 /* Berserk - Episódio 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1464356D28E786B7002850E3 /* Berserk - Episódio 1.mp4 */; };
 		1464354F28E763D7002850E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464354E28E763D7002850E3 /* AppDelegate.swift */; };
 		1464355128E763D7002850E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464355028E763D7002850E3 /* SceneDelegate.swift */; };
 		1464355328E763D7002850E3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464355228E763D7002850E3 /* View.swift */; };
@@ -146,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141128EE28E7961D00BE6882 /* Berserk - Episódio 1.mp4 in Resources */,
 				1464355B28E763D9002850E3 /* LaunchScreen.storyboard in Resources */,
 				1464355828E763D9002850E3 /* Assets.xcassets in Resources */,
 				1464356328E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 in Resources */,

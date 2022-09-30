@@ -11,7 +11,7 @@ struct Player {
     
     private var player: AVPlayer? = nil
     
-    mutating func play(_ url: URL?, view: UIView) {
+    mutating func play(_ url: URL?, in view: UIView? = nil) {
         
         if let player = player {
             
@@ -23,10 +23,13 @@ struct Player {
             guard let url = url else {return}
             player = AVPlayer(url: url)
             
-            let layer = AVPlayerLayer(player: player)
-            view.layer.addSublayer(layer)
-            layer.frame = view.layer.bounds
-            layer.videoGravity = .resize
+            if let view = view {
+                
+                let layer = AVPlayerLayer(player: player)
+                view.layer.addSublayer(layer)
+                layer.frame = view.layer.bounds
+                layer.videoGravity = .resizeAspect
+            }
             
             player?.play()
         }

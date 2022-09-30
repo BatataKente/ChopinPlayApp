@@ -10,7 +10,7 @@ import AVKit
 
 class View: UIViewController {
     
-//    private lazy var player = Player()
+    private lazy var player = Player()
     
     private struct Archives {
         
@@ -53,31 +53,8 @@ class View: UIViewController {
     
     @objc private func buttonTarget() {
        
-        play(URL(fileURLWithPath: Bundle.main.path(forResource: Archives.berserk.file,
-                                                          ofType: Archives.berserk.type) ?? ""))
-    }
-    
-    private var player: AVPlayer? = nil
-    
-    func play(_ url: URL?) {
-        
-        if let player = player {
-            
-            self.player = nil
-            player.pause()
-        }
-        else {
-            
-            guard let url = url else {return}
-            player = AVPlayer(url: url)
-            
-            let layer = AVPlayerLayer(player: player)
-            view.layer.addSublayer(layer)
-            layer.frame = view.layer.bounds
-            layer.videoGravity = .resize
-            
-            player?.play()
-        }
+        player.play(URL(fileURLWithPath: Bundle.main.path(forResource: Archives.berserk.file,
+                                                          ofType: Archives.berserk.type) ?? ""), in: view)
     }
 }
 
