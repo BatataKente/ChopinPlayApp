@@ -23,6 +23,10 @@ class View: UIViewController {
             
             let action = UIAction{_ in
                 
+                button.isSelected = !button.isSelected
+                if button.isSelected {button.tintColor = .yellow}
+                else {button.tintColor = .systemBlue}
+                
                 player.play(URL(fileURLWithPath: Bundle.main.path(forResource: archive.file,
                                                                   ofType: archive.type) ?? ""), in: self.view)
             }
@@ -53,7 +57,6 @@ class View: UIViewController {
         
         super.viewDidLoad()
         
-        view.backgroundColor = .red
         view.addSubview(stack)
         
         stack.translatesAutoresizingMaskIntoConstraints = false
