@@ -13,6 +13,7 @@
 		1464355828E763D9002850E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1464355728E763D9002850E3 /* Assets.xcassets */; };
 		1464355B28E763D9002850E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1464355928E763D9002850E3 /* LaunchScreen.storyboard */; };
 		1464356328E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */; };
+		1464356F28E786FE002850E3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464356E28E786FE002850E3 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		1464355A28E763D9002850E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1464355C28E763D9002850E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chopin - Nocturne in F minor Op 55 No 1.mp3"; sourceTree = "<group>"; };
+		1464356D28E786B7002850E3 /* Berserk - Episódio 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Berserk - Episódio 1.mp4"; sourceTree = "<group>"; };
+		1464356E28E786FE002850E3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */,
+				1464356D28E786B7002850E3 /* Berserk - Episódio 1.mp4 */,
 				1464355728E763D9002850E3 /* Assets.xcassets */,
+				1464356E28E786FE002850E3 /* Player.swift */,
 			);
 			path = AppUtils;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1464356F28E786FE002850E3 /* Player.swift in Sources */,
 				1464355328E763D7002850E3 /* View.swift in Sources */,
 				1464354F28E763D7002850E3 /* AppDelegate.swift in Sources */,
 				1464355128E763D7002850E3 /* SceneDelegate.swift in Sources */,

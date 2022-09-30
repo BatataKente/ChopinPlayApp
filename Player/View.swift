@@ -6,9 +6,17 @@
 //
 
 import UIKit
-import AVFoundation
+import AVKit
 
 class View: UIViewController {
+    
+//    private lazy var player = Player()
+    
+    private struct Archives {
+        
+        static let chopin = (file: "Chopin - Nocturne in F minor Op 55 No 1", type: "mp3")
+        static let berserk = (file: "Berserk - Episódio 1", type: "mp4")
+    }
     
     private let button: UIButton = {
         
@@ -25,14 +33,12 @@ class View: UIViewController {
         
         return button
     }()
-    
-    private var player: AVAudioPlayer? = nil
-    private var currentTime: Double = 0.0
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        view.backgroundColor = .red
         view.addSubview(button)
         
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -46,31 +52,31 @@ class View: UIViewController {
     }
     
     @objc private func buttonTarget() {
+       
+        play(URL(fileURLWithPath: Bundle.main.path(forResource: Archives.berserk.file,
+                                                          ofType: Archives.berserk.type) ?? ""))
+    }
+    
+    private var player: AVPlayer? = nil
+    
+    func play(_ url: URL?) {
         
-        if let player = player, player.isPlaying {
+        if let player = player {
             
-            player.stop()
+            self.player = nil
+            player.pause()
         }
         else {
             
-            let url = Bundle.main.path(forResource: "Chopin - Nocturne in F minor Op 55 No 1", ofType: "mp3")
+            guard let url = url else {return}
+            player = AVPlayer(url: url)
             
-            do {
-                try AVAudioSession.sharedInstance().setMode(.default)
-                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
-                guard let url = url else {return}
-                
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
-                
-                guard let player = player else {return}
-                
-                player.play()
-            }
-            catch {
-                
-                print("algo errado nao esta certo")
-            }
+            let layer = AVPlayerLayer(player: player)
+            view.layer.addSublayer(layer)
+            layer.frame = view.layer.bounds
+            layer.videoGravity = .resize
+            
+            player?.play()
         }
     }
 }
