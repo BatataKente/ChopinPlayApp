@@ -11,8 +11,18 @@ struct Player {
     
     private var player: AVPlayer? = nil
     private var layer: AVPlayerLayer? = nil
+    private var view: UIView? = nil
     
-    mutating func play(_ url: URL?, in view: UIView? = nil) {
+    init(videoContent: UIView? = nil) {
+        
+        self.view = videoContent
+    }
+    
+    mutating func play(_ url: URL?) {
+        
+        player?.pause()
+        player = nil
+        self.layer?.removeFromSuperlayer()
         
         if player != nil {return}
         

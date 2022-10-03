@@ -7,68 +7,57 @@
 
 import UIKit
 
+protocol ViewModelDelegate {
+    
+    func play(_ archive: (file: String, type: String))
+    func stop()
+}
+
 class ViewModel {
     
-    func createStack(archives: [(file: String, type: String)],
-                     at view: UIView) -> UIStackView {
+    let archives = [App.Videos.berserk,
+                    App.Musics.chopin,
+                    App.Musics.dio]
+    
+    private var delegate: ViewModelDelegate
+    
+    init(delegate: ViewModelDelegate) {
         
-        var player = Player()
+        self.delegate = delegate
+    }
+    
+    func createButton(_ archive: (file: String, type: String)) -> UIButton {
         
-        let stack = UIStackView()
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "music.note.list"), for: .normal)
+        button.contentMode = .scaleAspectFit
         
-        let createButton = {(archive: (file: String, type: String)) -> UIButton in
+        let action = UIAction{_ in
             
-            let button = UIButton()
-            button.setImage(UIImage(systemName: "music.note.list"), for: .normal)
-            button.contentMode = .scaleAspectFit
-            
-            let action = UIAction{_ in
+            if let stack = button.superview as? UIStackView {
                 
-                button.isSelected = !button.isSelected
-                if button.isSelected {
-                    
-                    player.play(URL(fileURLWithPath: Bundle.main.path(forResource: archive.file,
-                                                                      ofType: archive.type) ?? ""), in: view)
-                    button.tintColor = .yellow
-                    
-                    for otherButton in stack.arrangedSubviews {
+                button.tintColor = .yellow
+                button.isUserInteractionEnabled = false
+                self.delegate.play(archive)
+                
+                for arrangedSubview in stack.arrangedSubviews {
 
-                        if otherButton == button {continue}
-                        otherButton.isUserInteractionEnabled = false
-                    }
-                }
-                else {
-                    
-                    player.stop()
-                    button.tintColor = .systemBlue
-                    
-                    for otherButton in stack.arrangedSubviews {
-
-                        if otherButton == button {continue}
-                        otherButton.isUserInteractionEnabled = true
-                    }
+                    if arrangedSubview == button {continue}
+                    arrangedSubview.tintColor = .systemBlue
+                    arrangedSubview.isUserInteractionEnabled = true
                 }
             }
-            
-            button.addAction(action, for: .touchUpInside)
-            
-            button.imageView?.translatesAutoresizingMaskIntoConstraints = false
-            
-            button.imageView?.leadingAnchor.constraint(equalTo: button.leadingAnchor).isActive = true
-            button.imageView?.trailingAnchor.constraint(equalTo: button.trailingAnchor).isActive = true
-            button.imageView?.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
-            button.imageView?.heightAnchor.constraint(equalTo: button.imageView?.widthAnchor ?? NSLayoutDimension()).isActive = true
-            
-            return button
         }
         
-        for archive in archives {
-            
-            stack.addArrangedSubview(createButton(archive))
-        }
-        stack.distribution = .fillEqually
-        stack.axis = .vertical
+        button.addAction(action, for: .touchUpInside)
         
-        return stack
+        button.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.imageView?.leadingAnchor.constraint(equalTo: button.leadingAnchor).isActive = true
+        button.imageView?.trailingAnchor.constraint(equalTo: button.trailingAnchor).isActive = true
+        button.imageView?.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+        button.imageView?.heightAnchor.constraint(equalTo: button.imageView?.widthAnchor ?? NSLayoutDimension()).isActive = true
+        
+        return button
     }
 }

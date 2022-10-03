@@ -6,16 +6,25 @@
 //
 
 import UIKit
-import AVKit
 
 class View: UIViewController {
     
-    private let viewModel = ViewModel()
+    private lazy var viewModel = ViewModel(delegate: self)
+    private lazy var player = Player(videoContent: self.view)
     
-    private lazy var stack = viewModel.createStack(archives: [App.Videos.berserk,
-                                                              App.Musics.chopin,
-                                                              App.Musics.dio],
-                                                   at: view)
+    private lazy var stack: UIStackView = {
+        
+        let stack = UIStackView()
+        
+        for archive in viewModel.archives {
+            
+            stack.addArrangedSubview(viewModel.createButton(archive))
+        }
+        stack.distribution = .fillEqually
+        stack.axis = .vertical
+        
+        return stack
+    }()
 
     override func viewDidLoad() {
         
@@ -32,3 +41,16 @@ class View: UIViewController {
     }
 }
 
+extension View: ViewModelDelegate {
+    
+    func play(_ archive: (file: String, type: String)) {
+        
+        self.player.play(URL(fileURLWithPath: Bundle.main.path(forResource: archive.file,
+                                                               ofType: archive.type) ?? ""))
+    }
+    
+    func stop() {
+        
+        self.player.stop()
+    }
+}
