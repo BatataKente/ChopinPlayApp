@@ -86,12 +86,18 @@ class Player: UIStackView {
         }
     }
     
-    func chose(_ url: URL?) {
+    private func makeWay(forResource: String,
+                         ofType: String) -> URL {
+        
+        return URL(fileURLWithPath: Bundle.main.path(forResource: forResource,
+                                                     ofType: ofType) ?? "")
+    }
+    
+    func chose(_ playListPath: Int) {
         
         self.button.isSelected = true
-        
-        guard let url = url else {return}
-        player = AVPlayer(url: url)
+        player = AVPlayer(url: makeWay(forResource: playList[playListPath].file,
+                                       ofType: playList[playListPath].type))
     }
     
     func play() {

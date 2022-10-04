@@ -29,6 +29,7 @@ class View: UIViewController {
         
         let player = Player(videoContent: self.view)
         player.backgroundColor = App.Color.dark_Light
+        player.playList = viewModel.archives
         
         return player
     }()
@@ -46,10 +47,6 @@ class View: UIViewController {
         
         player.constraint(to: view.safeAreaLayoutGuide,
                           by: [.leading, .trailing, .bottom])
-        
-//        guard let indexPath = tableView.indexPathForSelectedRow else {return}
-//        let cell = tableView.cellForRow(at: indexPath)
-//        tableView.select(<#T##sender: Any?##Any?#>)
     }
 }
 
@@ -58,7 +55,7 @@ extension View: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         player.stop()
-        player.chose(viewModel.makeWay(indexPath))
+        player.chose(indexPath.row)
         player.play()
     }
     
