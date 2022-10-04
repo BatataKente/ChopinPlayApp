@@ -23,6 +23,8 @@ struct App {
     
     struct Image {
         
+        static let next = UIImage(systemName: "arrow.right.to.line.compact")
+        static let previous = UIImage(systemName: "arrow.left.to.line.compact")
         static let note = UIImage(systemName: "music.note")
         static let play = UIImage(systemName: "play.fill")
         static let stop = UIImage(systemName: "stop.fill")

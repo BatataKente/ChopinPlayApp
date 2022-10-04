@@ -46,6 +46,10 @@ class View: UIViewController {
         
         player.constraint(to: view.safeAreaLayoutGuide,
                           by: [.leading, .trailing, .bottom])
+        
+//        guard let indexPath = tableView.indexPathForSelectedRow else {return}
+//        let cell = tableView.cellForRow(at: indexPath)
+//        tableView.select(<#T##sender: Any?##Any?#>)
     }
 }
 

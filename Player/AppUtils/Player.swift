@@ -13,26 +13,24 @@ class Player: UIStackView {
     private var playerLayer: AVPlayerLayer? = nil
     var view: UIView? = nil
     
-    lazy var button: UIButton = {
-        
-        let button = UIButton(frame: .zero, primaryAction: buttonAction())
-        button.setImage(App.Image.play, for: .normal)
-        button.setImage(App.Image.stop, for: .selected)
-        button.tintColor = .yellow
-        
-        button.imageView?.constraint(to: button, by: [.centerY, .centerX])
-        button.imageView?.constraint(to: button, by: [.height], multiplier: 0.8)
-        button.imageView?.constraint(to: button.imageView, by_itemItem: [.height: .width])
-        
-        return button
-    }()
+    var playList: [Archive] = []
+    
+    lazy var previousButton: UIButton = createButton(normal: App.Image.previous)
+    
+    lazy var nextButton: UIButton = createButton(normal: App.Image.next)
+    
+    lazy var button: UIButton = createButton(normal: App.Image.play,
+                                             selected: App.Image.stop,
+                                             action: buttonAction())
     
     init(videoContent: UIView? = nil) {
         
         super.init(frame: .zero)
         
         self.view = videoContent
-        self.addArrangedSubview(button)
+        self.addArrangedSubviews([previousButton, button, nextButton])
+        
+        self.distribution = .fillEqually
         
         button.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/20).isActive = true
     }
@@ -40,6 +38,38 @@ class Player: UIStackView {
     required init(coder: NSCoder) {
         
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func createButton(normal: UIImage?,
+                              selected: UIImage? = nil,
+                              action: UIAction? = nil) -> UIButton {
+        
+        if let action = action {
+            
+            let button = UIButton(frame: .zero, primaryAction: action)
+            button.setImage(normal, for: .normal)
+            button.setImage(selected, for: .selected)
+            button.tintColor = .yellow
+            
+            button.imageView?.constraint(to: button, by: [.centerY, .centerX])
+            button.imageView?.constraint(to: button, by: [.height], multiplier: 0.8)
+            button.imageView?.constraint(to: button.imageView, by_itemItem: [.height: .width])
+            
+            return button
+        }
+        else {
+            
+            let button = UIButton()
+            button.setImage(normal, for: .normal)
+            button.setImage(selected, for: .selected)
+            button.tintColor = .yellow
+            
+            button.imageView?.constraint(to: button, by: [.centerY, .centerX])
+            button.imageView?.constraint(to: button, by: [.height], multiplier: 0.8)
+            button.imageView?.constraint(to: button.imageView, by_itemItem: [.height: .width])
+            
+            return button
+        }
     }
     
     private func buttonAction() -> UIAction {
