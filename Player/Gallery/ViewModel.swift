@@ -24,11 +24,4 @@ class ViewModel {
                     App.Video.berserk,
                     App.Music.chopin,
                     App.Music.dio]
-    
-//    func makeWay(_ indexPath: IndexPath?) -> URL? {
-//        
-//        guard let indexPath = indexPath else {return nil}
-//        return URL(fileURLWithPath: Bundle.main.path(forResource: archives[indexPath.row].file,
-//                                                     ofType: archives[indexPath.row].type) ?? "")
-//    }
 }

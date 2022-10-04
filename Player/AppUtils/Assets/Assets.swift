@@ -28,6 +28,7 @@ struct App {
         static let note = UIImage(systemName: "music.note")
         static let play = UIImage(systemName: "play.fill")
         static let stop = UIImage(systemName: "stop.fill")
+        static let pause = UIImage(systemName: "pause.fill")
     }
     
     struct Music {

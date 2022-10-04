@@ -19,8 +19,9 @@
 		1464355828E763D9002850E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1464355728E763D9002850E3 /* Assets.xcassets */; };
 		1464355B28E763D9002850E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1464355928E763D9002850E3 /* LaunchScreen.storyboard */; };
 		1464356328E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */; };
-		1464356F28E786FE002850E3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464356E28E786FE002850E3 /* Player.swift */; };
 		14A283C128EB8D6100C3B74D /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A283C028EB8D6100C3B74D /* Cell.swift */; };
+		14AD23B828ECC9050052B86D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD23B728ECC9050052B86D /* Player.swift */; };
+		14AD23BA28ECC9320052B86D /* PlayTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD23B928ECC9320052B86D /* PlayTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +39,9 @@
 		1464355C28E763D9002850E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chopin - Nocturne in F minor Op 55 No 1.mp3"; sourceTree = "<group>"; };
 		1464356D28E786B7002850E3 /* Berserk - Episódio 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Berserk - Episódio 1.mp4"; sourceTree = "<group>"; };
-		1464356E28E786FE002850E3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		14A283C028EB8D6100C3B74D /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		14AD23B728ECC9050052B86D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		14AD23B928ECC9320052B86D /* PlayTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +132,9 @@
 		1464356528E76C8A002850E3 /* AppUtils */ = {
 			isa = PBXGroup;
 			children = (
+				14AD23B628ECC8BE0052B86D /* Player */,
 				141128F428E799DD00BE6882 /* Assets */,
 				141128F328E799AA00BE6882 /* Extensions */,
-				1464356E28E786FE002850E3 /* Player.swift */,
 			);
 			path = AppUtils;
 			sourceTree = "<group>";
@@ -153,6 +155,15 @@
 				14A283C028EB8D6100C3B74D /* Cell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		14AD23B628ECC8BE0052B86D /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				14AD23B728ECC9050052B86D /* Player.swift */,
+				14AD23B928ECC9320052B86D /* PlayTab.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,13 +240,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				141128F228E7997600BE6882 /* UIView.swift in Sources */,
-				1464356F28E786FE002850E3 /* Player.swift in Sources */,
 				1401744128E7AA4B008CCBDC /* UIStackView.swift in Sources */,
 				141128F628E799FD00BE6882 /* Assets.swift in Sources */,
+				14AD23BA28ECC9320052B86D /* PlayTab.swift in Sources */,
 				1464355328E763D7002850E3 /* View.swift in Sources */,
 				14A283C128EB8D6100C3B74D /* Cell.swift in Sources */,
 				1464354F28E763D7002850E3 /* AppDelegate.swift in Sources */,
 				1401744528E7AEEC008CCBDC /* ViewModel.swift in Sources */,
+				14AD23B828ECC9050052B86D /* Player.swift in Sources */,
 				1464355128E763D7002850E3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
