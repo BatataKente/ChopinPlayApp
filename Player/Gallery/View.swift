@@ -44,7 +44,8 @@ class View: UIViewController {
                              by: [.top, .leading, .trailing])
         tableView.constraint(to: player, by_itemItem: [.bottom: .top])
         
-        player.constraint(to: view.safeAreaLayoutGuide, by: [.leading, .trailing, .bottom])
+        player.constraint(to: view.safeAreaLayoutGuide,
+                          by: [.leading, .trailing, .bottom])
     }
 }
 
@@ -52,8 +53,9 @@ extension View: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        player.play(viewModel.makeWay(indexPath))
-        player.button.isSelected = true
+        player.stop()
+        player.chose(viewModel.makeWay(indexPath))
+        player.play()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

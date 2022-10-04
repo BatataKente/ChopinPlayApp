@@ -13,12 +13,11 @@ class Player: UIStackView {
     private var playerLayer: AVPlayerLayer? = nil
     var view: UIView? = nil
     
-    let button: UIButton = {
+    lazy var button: UIButton = {
         
-        let button = UIButton()
+        let button = UIButton(frame: .zero, primaryAction: buttonAction())
         button.setImage(App.Image.play, for: .normal)
         button.setImage(App.Image.stop, for: .selected)
-        button.changesSelectionAsPrimaryAction = true
         button.tintColor = .yellow
         
         button.imageView?.constraint(to: button, by: [.centerY, .centerX])
@@ -36,8 +35,6 @@ class Player: UIStackView {
         self.addArrangedSubview(button)
         
         button.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/20).isActive = true
-        
-        button.addTarget(self, action: #selector(buttonTarget), for: .touchUpOutside)
     }
     
     required init(coder: NSCoder) {
@@ -45,16 +42,29 @@ class Player: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func play(_ url: URL?) {
+    private func buttonAction() -> UIAction {
         
-        player?.pause()
-        player = nil
-        self.playerLayer?.removeFromSuperlayer()
+        return UIAction{_ in
+            
+            self.button.isSelected = !self.button.isSelected
+            
+            if !self.button.isSelected {
+                
+                self.stop(); return
+            }
+            self.play()
+        }
+    }
+    
+    func chose(_ url: URL?) {
         
-        if player != nil {return}
+        self.button.isSelected = true
         
         guard let url = url else {return}
         player = AVPlayer(url: url)
+    }
+    
+    func play() {
         
         if let view = view {
             
@@ -68,18 +78,9 @@ class Player: UIStackView {
     }
     
     func stop() {
-        
+
         player?.pause()
         player = nil
         self.playerLayer?.removeFromSuperlayer()
-    }
-    
-    @objc private func buttonTarget(_ sender: UIButton) {
-        
-        if !sender.isSelected {
-            
-            player?.play(); return
-        }
-        player?.pause()
     }
 }
