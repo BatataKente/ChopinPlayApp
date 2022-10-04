@@ -20,6 +20,7 @@
 		1464355B28E763D9002850E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1464355928E763D9002850E3 /* LaunchScreen.storyboard */; };
 		1464356328E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */; };
 		1464356F28E786FE002850E3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1464356E28E786FE002850E3 /* Player.swift */; };
+		14A283C128EB8D6100C3B74D /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A283C028EB8D6100C3B74D /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		1464356228E76846002850E3 /* Chopin - Nocturne in F minor Op 55 No 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chopin - Nocturne in F minor Op 55 No 1.mp3"; sourceTree = "<group>"; };
 		1464356D28E786B7002850E3 /* Berserk - Episódio 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Berserk - Episódio 1.mp4"; sourceTree = "<group>"; };
 		1464356E28E786FE002850E3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		14A283C028EB8D6100C3B74D /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +109,9 @@
 		1464354D28E763D7002850E3 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				14A283BE28EB8D2E00C3B74D /* Gallery */,
 				1464356528E76C8A002850E3 /* AppUtils */,
 				1464356428E76C81002850E3 /* AppDelegate */,
-				1464355228E763D7002850E3 /* View.swift */,
-				1401744428E7AEEC008CCBDC /* ViewModel.swift */,
 				1464355928E763D9002850E3 /* LaunchScreen.storyboard */,
 				1464355C28E763D9002850E3 /* Info.plist */,
 			);
@@ -134,6 +135,24 @@
 				1464356E28E786FE002850E3 /* Player.swift */,
 			);
 			path = AppUtils;
+			sourceTree = "<group>";
+		};
+		14A283BE28EB8D2E00C3B74D /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				14A283BF28EB8D5300C3B74D /* Cell */,
+				1464355228E763D7002850E3 /* View.swift */,
+				1401744428E7AEEC008CCBDC /* ViewModel.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		14A283BF28EB8D5300C3B74D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				14A283C028EB8D6100C3B74D /* Cell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +233,7 @@
 				1401744128E7AA4B008CCBDC /* UIStackView.swift in Sources */,
 				141128F628E799FD00BE6882 /* Assets.swift in Sources */,
 				1464355328E763D7002850E3 /* View.swift in Sources */,
+				14A283C128EB8D6100C3B74D /* Cell.swift in Sources */,
 				1464354F28E763D7002850E3 /* AppDelegate.swift in Sources */,
 				1401744528E7AEEC008CCBDC /* ViewModel.swift in Sources */,
 				1464355128E763D7002850E3 /* SceneDelegate.swift in Sources */,
