@@ -31,8 +31,10 @@ class Cell: UITableViewCell {
         
         if selected {
             
+            self.isUserInteractionEnabled = false
             musicImageView.tintColor = .yellow; return
         }
+        self.isUserInteractionEnabled = true
         musicImageView.tintColor = App.Color.light_Dark
     }
     
