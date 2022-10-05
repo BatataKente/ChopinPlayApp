@@ -11,13 +11,15 @@ class Player {
     
     private var player: AVPlayer? = nil
     private var playerLayer: AVPlayerLayer? = nil
-    var videoContent: UIView? = nil
+    var videoContent: UIView?
     
-    var playList: [Archive] = []
+    var playList: [Archive]
     
-    init(videoContent: UIView? = nil) {
+    init(videoContent: UIView? = nil,
+         playList: [Archive] = []) {
         
         self.videoContent = videoContent
+        self.playList = playList
     }
     
     private func makeWay(forResource: String,

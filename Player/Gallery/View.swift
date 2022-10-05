@@ -20,13 +20,6 @@ class View: UIViewController {
         return tableView
     }()
     
-    private let player: Player = {
-        
-        let player = Player()
-        
-        return player
-    }()
-    
     private let tabBar = PlayTab()
     
     override func viewDidLoad() {
@@ -37,8 +30,7 @@ class View: UIViewController {
         view.backgroundColor = App.Color.dark_Light
         
         //MARK: - player suit the view
-        player.playList = viewModel.archives
-        player.videoContent = view
+        viewModel.player.videoContent = view
         
         //MARK: - tabBar suit the view
         tabBar.delegate = self
@@ -57,35 +49,27 @@ class View: UIViewController {
         tabBar.constraint(to: view.safeAreaLayoutGuide,
                           by: [.leading, .trailing, .bottom])
     }
-    
-    private func selectTableViewCell(_ row: Int) {
-        
-        tableView.selectRow(at: IndexPath(row: row,
-                                          section: tableView.indexPathForSelectedRow?.section ?? 0),
-                            animated: false,
-                            scrollPosition: .none)
-    }
 }
 
 extension View: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        player.stop()
+        viewModel.player.stop()
         tabBar.items?[1].image = App.Image.pause
-        player.chose(indexPath.row)
-        player.play()
+        viewModel.player.chose(indexPath.row)
+        viewModel.player.play()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        viewModel.archives.count
+        viewModel.player.playList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cell, for: indexPath) as? Cell
-        cell?.setup(App.Image.note, text: viewModel.archives[indexPath.row].file)
+        cell?.setup(App.Image.note, text: viewModel.player.playList[indexPath.row].file)
         
         return cell ?? UITableViewCell()
     }
@@ -95,43 +79,6 @@ extension View: UITabBarDelegate {
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
-        switch item.image {
-            
-            case App.Image.previous:
-            
-                guard let row = tableView.indexPathForSelectedRow?.row else {return}
-                if row != 0 {
-                    
-                    tabBar.items?[1].image = App.Image.pause
-                    
-                    player.stop()
-                    selectTableViewCell(row - 1)
-                    player.chose(row - 1)
-                    player.play()
-                }
-            
-            case App.Image.play:
-            
-                player.play()
-                item.image = App.Image.pause
-            
-            case App.Image.pause:
-            
-                player.pause()
-                item.image = App.Image.play
-
-            default:
-            
-                guard let row = tableView.indexPathForSelectedRow?.row else {return}
-                if row != (viewModel.archives.count - 1) {
-                    
-                    tabBar.items?[1].image = App.Image.pause
-                    
-                    player.stop()
-                    selectTableViewCell(row + 1)
-                    player.chose(row + 1)
-                    player.play()
-                }
-        }
+        viewModel.selectMusic(tabBar, item, tableView)
     }
 }
